@@ -6,38 +6,37 @@
 /*   By: agomes-f <agomes-f@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 15:32:32 by agomes-f          #+#    #+#             */
-/*   Updated: 2026/01/31 16:05:00 by agomes-f         ###   ########.fr       */
+/*   Updated: 2026/01/31 17:38:54 by agomes-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
-	int i;
-	int j;
-	char **new_numbers;
+	char	**numbers;
 
-	i = 1;
-	while (i < argc)
+	int i, j;
+	if (argc < 2)
+		return (0);
+	for (i = 1; i < argc; i++)
 	{
-		if (!ft_valid_arg(argv[i]))
+		numbers = ft_split(argv[i], ' ');
+		if (!numbers)
+			return (1);
+		j = 0;
+		while (numbers[j])
 		{
-			printf("Error\n");
-			return (0);
+			ft_atoi(numbers[j]);
+			j++;
 		}
-		i++;
-	}
-	new_numbers = ft_split(argv[1], ' ');
-	if (!new_numbers)
-		return (1);
-	j = 0;
-	while (new_numbers[j])
-	{
-		printf("Posição [%d]: %s\n", j, new_numbers[j]);
-		printf("Valor como int [%d]: %d\n", j, ft_atoi(new_numbers[j]));
-		j++;
+		j = 0;
+		while (numbers[j])
+		{
+			free(numbers[j]);
+			j++;
+		}
+		free(numbers);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: agomes-f <agomes-f@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 15:32:28 by agomes-f          #+#    #+#             */
-/*   Updated: 2026/01/31 16:03:49 by agomes-f         ###   ########.fr       */
+/*   Updated: 2026/01/31 17:40:30 by agomes-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_stack_node
 }						t_stack_node;
 
 // prototypes
-int	ft_valid_arg(char *s);
 int ft_atoi(const char *str);
 char **ft_split(char const *s, char c);
 char *ft_substr(const char *s, unsigned int start, size_t len);

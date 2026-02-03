@@ -1,7 +1,7 @@
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
 
-NAME    = push_swap
+NAME    = push_swap.a
 LIBFT   = libft/libft.a
 
 SRCS    = main.c

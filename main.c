@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafinha <rafinha@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rafasilv <rafasilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 10:59:54 by rafinha           #+#    #+#             */
-/*   Updated: 2026/01/30 18:12:35 by rafinha          ###   ########.fr       */
+/*   Updated: 2026/02/04 09:08:33 by rafasilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,61 +15,58 @@
 
 #include <stdio.h>
 
-static void print_split(char **arr)
+int	ft_atoi_push(const char *str)
 {
-    int i = 0;
-    if (!arr)
-    {
-        printf("(null)\n");
-        return;
-    }
-    while (arr[i])
-    {
-        printf("[%d] \"%s\"\n", i, arr[i]);
-        i++;
-    }
+	int	i;
+	int	num;
+	int	sign;
+
+	i = 0;
+	num = 0;
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = num * 10 + (str[i] - '0');
+		i++;
+	}
+    
+	return (num * sign);
 }
 
-int verify_args(int argc, char **argv)
-{
-    int i;
-    int j;
-    char    **matriz;
 
-    i = 1;
-    j = 0;
-
-    while (argv[i])
-    {
-        j = 0;
-        while (argv[i][j] != '\0')
-        {
-            if ((argv[i][j] < '0' || argv[i][j] > '9') && argv[i][j] != '-'
-                && argv[i][j] != '+' && argv[i][j] != ' ')
-            {
-                write(1, "Error\n", 6);
-                return (-1);
-            }
-            j++;
-        }
-        i++;
-    }
-    return (0);    
-}
 
 int main(int argc, char **argv) 
 {
     int i;
+    int j;
+    int str;
 
     i = 1;
+    j = 0;
     if (argc < 2) 
     {
+        write(2, "Error\n", 6);
         return (-1);
     }
-    while (i < argc)
+
+    while (argv[i][j])
     {
-        verify_args(argc, argv);
+        j = 0;
+        while (argv[i][j] != '\0')
+        {
+            str = ft_atoi_push(&argv[i][j]);
+            j++;
+        }
         i++;
     }
+    printf("Teste: %d", str);
     return 0;
 }

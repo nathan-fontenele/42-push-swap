@@ -12,6 +12,7 @@ SRC = src/main.c \
       src/parse.c \
       src/parse_utils.c \
       src/error.c \
+      src/free_utils.c \
       src/stack_init.c \
       src/stack_utils.c \
       src/stack_utils2.c \

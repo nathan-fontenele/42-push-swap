@@ -28,6 +28,7 @@ int		has_duplicate(t_stack *a, int value);
 /* error */
 void	error_exit(t_stack **a);
 void	free_stack(t_stack **stack);
+void	ft_free_split(char **split);
 
 /* stack init / utils */
 t_stack	*new_node(int value);

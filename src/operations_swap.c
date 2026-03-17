@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations_swap.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafasilv <rafasilv@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/17 17:44:13 by rafasilv          #+#    #+#             */
+/*   Updated: 2026/03/17 17:44:22 by rafasilv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static void	swap_top(t_stack **stack)
@@ -10,11 +22,7 @@ static void	swap_top(t_stack **stack)
 	first = *stack;
 	second = first->next;
 	first->next = second->next;
-	if (second->next)
-		second->next->prev = first;
-	second->prev = NULL;
 	second->next = first;
-	first->prev = second;
 	*stack = second;
 }
 

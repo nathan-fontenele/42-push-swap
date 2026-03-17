@@ -1,37 +1,69 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   target_cost.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafasilv <rafasilv@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/17 17:41:44 by rafasilv          #+#    #+#             */
+/*   Updated: 2026/03/17 17:47:36 by rafasilv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
+
+static int	find_next_greater_index_pos(t_stack *a, int b_index)
+{
+	int			min_greater;
+	int			pos;
+	t_stack		*tmp;
+
+	min_greater = INT_MAX;
+	pos = 0;
+	tmp = a;
+	while (tmp)
+	{
+		if (tmp->index > b_index && tmp->index < min_greater)
+		{
+			min_greater = tmp->index;
+			pos = tmp->pos;
+		}
+		tmp = tmp->next;
+	}
+	if (min_greater != INT_MAX)
+		return (pos);
+	return (-1);
+}
+
+static int	find_min_index_pos(t_stack *a)
+{
+	int			min_index;
+	int			pos;
+	t_stack		*tmp;
+
+	min_index = INT_MAX;
+	pos = 0;
+	tmp = a;
+	while (tmp)
+	{
+		if (tmp->index < min_index)
+		{
+			min_index = tmp->index;
+			pos = tmp->pos;
+		}
+		tmp = tmp->next;
+	}
+	return (pos);
+}
 
 static int	get_target_pos(t_stack *a, int b_index)
 {
-	t_stack	*tmp;
-	int		target_index;
-	int		target_pos;
+	int	pos;
 
-	tmp = a;
-	target_index = INT_MAX;
-	target_pos = 0;
-	while (tmp)
-	{
-		if (tmp->index > b_index && tmp->index < target_index)
-		{
-			target_index = tmp->index;
-			target_pos = tmp->pos;
-		}
-		tmp = tmp->next;
-	}
-	if (target_index != INT_MAX)
-		return (target_pos);
-	tmp = a;
-	target_index = INT_MAX;
-	while (tmp)
-	{
-		if (tmp->index < target_index)
-		{
-			target_index = tmp->index;
-			target_pos = tmp->pos;
-		}
-		tmp = tmp->next;
-	}
-	return (target_pos);
+	pos = find_next_greater_index_pos(a, b_index);
+	if (pos != -1)
+		return (pos);
+	return (find_min_index_pos(a));
 }
 
 void	assign_target_positions(t_stack *a, t_stack *b)

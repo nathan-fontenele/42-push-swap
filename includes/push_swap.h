@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafasilv <rafasilv@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/17 17:40:01 by rafasilv          #+#    #+#             */
+/*   Updated: 2026/03/17 17:40:25 by rafasilv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -15,22 +27,18 @@ typedef struct s_stack
 	int				cost_a;
 	int				cost_b;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }	t_stack;
 
-/* parse */
 void	parse_args(int argc, char **argv, t_stack **a);
 void	add_numbers(char **nums, t_stack **a, int must_free);
 int		is_valid_number(char *str);
 long	ft_atol_ps(const char *str);
 int		has_duplicate(t_stack *a, int value);
 
-/* error */
 void	error_exit(t_stack **a);
 void	free_stack(t_stack **stack);
 void	ft_free_split(char **split);
 
-/* stack init / utils */
 t_stack	*new_node(int value);
 void	add_back(t_stack **stack, t_stack *new);
 t_stack	*last_node(t_stack *stack);
@@ -43,7 +51,6 @@ int		get_min_index(t_stack *stack);
 int		get_max_index(t_stack *stack);
 void	assign_index(t_stack *a);
 
-/* operations */
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
@@ -56,13 +63,11 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 
-/* small sort */
 void	sort_stack(t_stack **a, t_stack **b);
 void	sort_two(t_stack **a);
 void	sort_three(t_stack **a);
 void	sort_five(t_stack **a, t_stack **b);
 
-/* turk */
 void	sort_turk(t_stack **a, t_stack **b);
 void	assign_target_positions(t_stack *a, t_stack *b);
 void	calculate_costs(t_stack *a, t_stack *b);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations_push.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafasilv <rafasilv@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/17 17:40:43 by rafasilv          #+#    #+#             */
+/*   Updated: 2026/03/17 17:42:35 by rafasilv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static void	push_top(t_stack **dest, t_stack **src)
@@ -8,12 +20,7 @@ static void	push_top(t_stack **dest, t_stack **src)
 		return ;
 	node = *src;
 	*src = node->next;
-	if (*src)
-		(*src)->prev = NULL;
 	node->next = *dest;
-	if (*dest)
-		(*dest)->prev = node;
-	node->prev = NULL;
 	*dest = node;
 }
 

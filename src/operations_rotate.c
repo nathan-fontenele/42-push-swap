@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations_rotate.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafasilv <rafasilv@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/17 17:40:57 by rafasilv          #+#    #+#             */
+/*   Updated: 2026/03/17 17:42:44 by rafasilv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static void	rotate_up(t_stack **stack)
@@ -10,9 +22,7 @@ static void	rotate_up(t_stack **stack)
 	first = *stack;
 	last = last_node(*stack);
 	*stack = first->next;
-	(*stack)->prev = NULL;
 	first->next = NULL;
-	first->prev = last;
 	last->next = first;
 }
 

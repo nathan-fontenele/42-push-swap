@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafasilv <rafasilv@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/17 17:41:29 by rafasilv          #+#    #+#             */
+/*   Updated: 2026/03/17 17:43:10 by rafasilv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 t_stack	*new_node(int value)
@@ -14,7 +26,6 @@ t_stack	*new_node(int value)
 	node->cost_a = 0;
 	node->cost_b = 0;
 	node->next = NULL;
-	node->prev = NULL;
 	return (node);
 }
 
@@ -40,5 +51,4 @@ void	add_back(t_stack **stack, t_stack *new)
 	}
 	last = last_node(*stack);
 	last->next = new;
-	new->prev = last;
 }

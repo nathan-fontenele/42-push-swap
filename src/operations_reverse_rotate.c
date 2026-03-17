@@ -1,16 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations_reverse_rotate.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafasilv <rafasilv@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/17 17:40:50 by rafasilv          #+#    #+#             */
+/*   Updated: 2026/03/17 17:42:39 by rafasilv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static void	rotate_down(t_stack **stack)
 {
 	t_stack	*last;
+	t_stack	*penult;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	last = last_node(*stack);
-	last->prev->next = NULL;
-	last->prev = NULL;
+	penult = *stack;
+	while (penult->next && penult->next != last)
+		penult = penult->next;
+	penult->next = NULL;
 	last->next = *stack;
-	(*stack)->prev = last;
 	*stack = last;
 }
 

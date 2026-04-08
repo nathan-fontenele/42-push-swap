@@ -1,5 +1,5 @@
 # Push Swap
-*Este projeto foi criado como parte do currículo da 42 por Rafaela Oliveira / rafasilv*
+*Este projeto foi criado como parte do currículo da 42 por Nathan Fontenele - agomes-f*
 
 ## Descrição
 Este projeto consiste em implementar um programa que ordena uma pilha de números inteiros utilizando um conjunto limitado de operações. O objetivo é realizar a ordenação com o menor número possível de movimentos.
